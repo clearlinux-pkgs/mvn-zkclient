@@ -4,20 +4,24 @@
 #
 Name     : mvn-zkclient
 Version  : 0.10
-Release  : 2
+Release  : 3
 URL      : https://github.com/sgroschupf/zkclient/archive/0.10.tar.gz
 Source0  : https://github.com/sgroschupf/zkclient/archive/0.10.tar.gz
 Source1  : https://repo1.maven.org/maven2/com/101tec/zkclient/0.10/zkclient-0.10.jar
 Source2  : https://repo1.maven.org/maven2/com/101tec/zkclient/0.10/zkclient-0.10.pom
-Source3  : https://repo1.maven.org/maven2/com/101tec/zkclient/0.3/zkclient-0.3.jar
-Source4  : https://repo1.maven.org/maven2/com/101tec/zkclient/0.3/zkclient-0.3.pom
-Source5  : https://repo1.maven.org/maven2/com/101tec/zkclient/0.7/zkclient-0.7.jar
-Source6  : https://repo1.maven.org/maven2/com/101tec/zkclient/0.7/zkclient-0.7.pom
+Source3  : https://repo1.maven.org/maven2/com/101tec/zkclient/0.11/zkclient-0.11.jar
+Source4  : https://repo1.maven.org/maven2/com/101tec/zkclient/0.11/zkclient-0.11.pom
+Source5  : https://repo1.maven.org/maven2/com/101tec/zkclient/0.3/zkclient-0.3.jar
+Source6  : https://repo1.maven.org/maven2/com/101tec/zkclient/0.3/zkclient-0.3.pom
+Source7  : https://repo1.maven.org/maven2/com/101tec/zkclient/0.7/zkclient-0.7.jar
+Source8  : https://repo1.maven.org/maven2/com/101tec/zkclient/0.7/zkclient-0.7.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-zkclient-data = %{version}-%{release}
 Requires: mvn-zkclient-license = %{version}-%{release}
+BuildRequires : buildreq-mvn
+BuildRequires : gradle
 
 %description
 ZkClient: a zookeeper client, that makes life a little easier.
@@ -55,17 +59,23 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.1
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.10
 cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.10/zkclient-0.10.pom
 
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.3
-cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.3/zkclient-0.3.jar
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.11
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.11/zkclient-0.11.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.11
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.11/zkclient-0.11.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.3
-cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.3/zkclient-0.3.pom
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.3/zkclient-0.3.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.3
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.3/zkclient-0.3.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.7
-cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.jar
+cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.7
-cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.pom
+cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.pom
 
 
 %files
@@ -75,6 +85,8 @@ cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/com/101tec/zkclient/0.7
 %defattr(-,root,root,-)
 /usr/share/java/.m2/repository/com/101tec/zkclient/0.10/zkclient-0.10.jar
 /usr/share/java/.m2/repository/com/101tec/zkclient/0.10/zkclient-0.10.pom
+/usr/share/java/.m2/repository/com/101tec/zkclient/0.11/zkclient-0.11.jar
+/usr/share/java/.m2/repository/com/101tec/zkclient/0.11/zkclient-0.11.pom
 /usr/share/java/.m2/repository/com/101tec/zkclient/0.3/zkclient-0.3.jar
 /usr/share/java/.m2/repository/com/101tec/zkclient/0.3/zkclient-0.3.pom
 /usr/share/java/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.jar
